@@ -62,5 +62,15 @@
                 <RadioButton x:Name="rbPriority" Margin="10,13,10,13" Content="Priority" Grid.Row="3" FontSize="16"/>
             </Grid>
         </GroupBox>
+        <GroupBox x:Name="gbQuantum" Grid.Column="1" Margin="10,5,10,5" Grid.RowSpan="3" Grid.Row="1" Header="Квант времени">
+            <Grid Height="76">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Margin="10,11,10,3" Text="Введите квант:" FontWeight="Bold"/>
+                <TextBox x:Name="tbQuantum" Margin="10,5,10,5" FontSize="14" Grid.Row="1"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>
