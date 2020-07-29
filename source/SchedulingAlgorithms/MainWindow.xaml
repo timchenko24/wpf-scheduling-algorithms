@@ -48,5 +48,19 @@
         <Button x:Name="btnStartSimulation" Content="Начать симуляцию" Margin="10,5,10,5" Grid.Row="2"/>
         <Button x:Name="btnReset" Content="Сброс" Margin="10,5,10,5" Grid.Row="3"/>
         <DataGrid x:Name="dgProcessesTable" Grid.Column="2" Margin="10,10,10,10"/>
+        <GroupBox x:Name="gbSchedulingAlgs" Header="Алгоритм планирования" Grid.Column="1" Margin="10,10,10,10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <RadioButton x:Name="rbFCFS" Margin="10,16,10,16" Content="FCFS" FontSize="16"/>
+                <RadioButton x:Name="rbRoundRobin" Content="Round Robin" Grid.Row="1" FontSize="16" Margin="10,14,10,14"/>
+                <RadioButton x:Name="rbSJF" Margin="10,13,10,14" Content="SJF" Grid.Row="2" FontSize="16"/>
+                <RadioButton x:Name="rbPriority" Margin="10,13,10,13" Content="Priority" Grid.Row="3" FontSize="16"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>
