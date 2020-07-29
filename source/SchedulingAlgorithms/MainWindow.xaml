@@ -75,6 +75,21 @@
             </Grid>
         </GroupBox>
         <dvk:Chart x:Name="Chart" Grid.Column="2" Margin="10" Grid.Row="1" Grid.RowSpan="5" Title="График"></dvk:Chart>
-        
+        <GroupBox x:Name="gbResults" Grid.ColumnSpan="2" Margin="10" Grid.Row="4" Grid.RowSpan="2" Header="Результаты">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Margin="10,31,10,30" Text="Среднее время ожидания:" FontSize="18"/>
+                <TextBlock Margin="10,31,10,30" Text="Среднее время выполнения:" FontSize="18" Grid.Row="1"/>
+                <TextBlock x:Name="lblAverageWaitTime" Margin="10,31,10,30" Text="" FontSize="18" Grid.Column="1"/>
+                <TextBlock x:Name="lblAverageTurnTime" Margin="10,31,10,30" Text="" FontSize="18" Grid.Column="1" Grid.Row="1"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>
