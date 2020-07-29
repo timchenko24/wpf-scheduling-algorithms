@@ -4,15 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchedulingAlgorithms"
+        xmlns:dvk="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
         mc:Ignorable="d"
-        Title="MainWindow" Height="613" Width="1120" MinHeight="613" MinWidth="1120">
+        Title="MainWindow" Height="613" Width="1236" MinHeight="613" MinWidth="1120">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="256*"/>
-            <RowDefinition Height="40*"/>
-            <RowDefinition Height="40*"/>
-            <RowDefinition Height="40*"/>
-            <RowDefinition Height="221*"/>
+            <RowDefinition Height="250*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="108*"/>
+            <RowDefinition Height="107*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="381*"/>
@@ -72,5 +74,7 @@
                 <TextBox x:Name="tbQuantum" Margin="10,5,10,5" FontSize="14" Grid.Row="1"/>
             </Grid>
         </GroupBox>
+        <dvk:Chart x:Name="Chart" Grid.Column="2" Margin="10" Grid.Row="1" Grid.RowSpan="5" Title="График"></dvk:Chart>
+        
     </Grid>
 </Window>
