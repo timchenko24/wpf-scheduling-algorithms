@@ -5,8 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchedulingAlgorithms"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="613" Width="1120" MinHeight="613" MinWidth="1120">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="256*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="221*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="381*"/>
+            <ColumnDefinition Width="177*"/>
+            <ColumnDefinition Width="562*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox x:Name="gbProcessData" Header="Процесс" Margin="10,10,10,10" Grid.Column="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="164*"/>
+                    <ColumnDefinition Width="185*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="tbProcessName" Margin="10,10,10,10" Grid.Column="1" Grid.Row="0" FontSize="14"/>
+                <TextBlock FontWeight="Bold" Text="Введите имя процесса:" Grid.Column="0" Grid.Row="0" Margin="10,14,10,13"/>
+
+                <TextBox x:Name="tbProcessArrivalTime" Margin="10,10,10,10" Grid.Column="1" Grid.Row="1" FontSize="14"/>
+                <TextBlock Text="Введите такт&#x0a;появления процесса:" FontWeight="Bold" Grid.Row="1" Margin="10,9,10,8"/>
+
+                <TextBox x:Name="tbProcessBurst" Margin="10,10,10,10" Grid.Column="1" Grid.Row="2" FontSize="14"/>
+                <TextBlock Text="Введите такт&#x0a;CPU Burst процесса:" FontWeight="Bold" Grid.Row="2" Margin="10,8,10,8"/>
+
+                <TextBox x:Name="tbProcessPriority" Margin="10,10,10,10" Grid.Column="1" Grid.Row="3" FontSize="14"/>
+                <TextBlock Text="Введите приоритет&#x0a;процесса:" FontWeight="Bold" Grid.Row="3" Margin="10,8,10,7"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>
