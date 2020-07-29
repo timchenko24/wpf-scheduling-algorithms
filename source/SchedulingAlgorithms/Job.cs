@@ -12,17 +12,19 @@ namespace SchedulingAlgorithms
         public int JobNumber { get; set; }
         public int ArrivalTime { get; set; }
         public int Burst { get; set; }
+        public int Priority { get; set; } = 0;
         public int StartTime { get; set; }
         public bool IsFinished { get; set; }
         public int FinishTime { get; set; }
         public int RemainingTime { get; set; }
 
-        public Job(int jobNumber, int arrivalTime, int burst)
+        public Job(int jobNumber, int arrivalTime, int burst, int priority)
         {
             JobNumber = jobNumber;
             ArrivalTime = arrivalTime;
             Burst = burst;
             RemainingTime = burst;
+            Priority = priority;
             IsFinished = false;
             FinishTime = 0;
         }
