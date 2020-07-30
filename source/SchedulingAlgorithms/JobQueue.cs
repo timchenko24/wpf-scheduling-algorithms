@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SchedulingAlgorithms
 {
-    public class JobQueue
+    public class JobQueue : IEnumerable
     {
         public List<Job> JobList { get; set; }
 
@@ -51,6 +51,11 @@ namespace SchedulingAlgorithms
         public void Sort(IComparer<Job> comparer)
         {
             JobList.Sort(comparer);
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return JobList.GetEnumerator();
         }
     }
 }
