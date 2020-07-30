@@ -8,7 +8,7 @@ namespace SchedulingAlgorithms
 {
     public class FCFS : SchedulingAlgorithm
     {
-        public FCFS(JobQueue workQueue, IComparer<Job> comparer) : base(workQueue, comparer) { }
+        public FCFS(JobQueue workQueue) : base(workQueue, new JobByArrivalTimeComparer()) { }
 
         public override Job NextStep(int simulationTime)
         {

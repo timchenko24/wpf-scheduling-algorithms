@@ -11,7 +11,7 @@ namespace SchedulingAlgorithms
         public int Quantum { get; set; }
         private int m_processTime;
 
-        public RoundRobin(JobQueue workQueue, IComparer<Job> comparer, int quantum = 0) : base(workQueue, comparer)
+        public RoundRobin(JobQueue workQueue, int quantum = 0) : base(workQueue, new JobByArrivalTimeComparer())
         {
             Quantum = quantum;
         }
