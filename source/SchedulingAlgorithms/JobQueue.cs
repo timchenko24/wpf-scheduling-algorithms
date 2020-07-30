@@ -47,5 +47,10 @@ namespace SchedulingAlgorithms
         {
             return JobList.Count;
         }
+
+        public void Sort(IComparer<Job> comparer)
+        {
+            JobList.Sort(comparer);
+        }
     }
 }
