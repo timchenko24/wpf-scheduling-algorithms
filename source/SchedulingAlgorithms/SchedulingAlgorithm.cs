@@ -50,5 +50,11 @@ namespace SchedulingAlgorithms
                 }
             }
         }
+
+        protected void SetCurrentJob()
+        {
+            currentJob = readyQueue.GetJobById(0);
+            readyQueue.Remove(0);
+        }
     }
 }
