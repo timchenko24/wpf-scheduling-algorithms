@@ -57,5 +57,10 @@ namespace SchedulingAlgorithms
         {
             return JobList.GetEnumerator();
         }
+
+        public JobQueue GetCopy()
+        {
+            return new JobQueue(JobList);
+        }
     }
 }
