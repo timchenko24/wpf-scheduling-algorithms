@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="613" Width="1236" MinHeight="613" MinWidth="1120">
     <Window.Resources>
-        <local:MethodToValueConverter x:Key="converter"></local:MethodToValueConverter>
+        <local:InverseAndBooleansToBooleanConverter x:Key="converter"></local:InverseAndBooleansToBooleanConverter>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -81,7 +81,16 @@
                 <TextBlock Text="Введите приоритет&#x0a;процесса:" FontWeight="Bold" Grid.Row="3" Margin="10,8,10,7"/>
             </Grid>
         </GroupBox>
-        <Button x:Name="btnAddProcess" Content="Добавить процесс" Margin="10,5,10,5" Grid.Row="1" Click="btnAddProcess_Click"/>
+        <Button x:Name="btnAddProcess" Content="Добавить процесс" Margin="10,5,10,5" Grid.Row="1" Click="btnAddProcess_Click">
+            <Button.IsEnabled>
+                <MultiBinding Converter="{StaticResource converter}" Mode="TwoWay">
+                    <Binding ElementName="tbProcessName" Path="(Validation.HasError)" />
+                    <Binding ElementName="tbProcessArrivalTime" Path="(Validation.HasError)" />
+                    <Binding ElementName="tbProcessBurst" Path="(Validation.HasError)" />
+                    <Binding ElementName="tbProcessPriority" Path="(Validation.HasError)" />
+                </MultiBinding>
+            </Button.IsEnabled>
+        </Button>
         <Button x:Name="btnStartSimulation" Content="Начать симуляцию" Margin="10,5,10,5" Grid.Row="2"/>
         <Button x:Name="btnReset" Content="Сброс" Margin="10,5,10,5" Grid.Row="3"/>
         <DataGrid x:Name="dgProcessesTable" Grid.Column="2" Margin="10,10,10,10" AutoGenerateColumns="False"
@@ -95,8 +104,7 @@
                 <DataGridTextColumn Header="Burst"  Binding="{Binding Burst}"/>
                 <DataGridTextColumn Header="Priority"  Binding="{Binding Priority}"/>
                 <DataGridTextColumn Header="Start"  Binding="{Binding StartTime}"/>
-                <DataGridTextColumn Header="Wait"  Binding="{Binding Converter={StaticResource converter},
-                    ConverterParameter='GetWaitingTime'}"/>
+                <DataGridTextColumn Header="Wait"  Binding="{Binding }"/>
                 <DataGridTextColumn Header="Remain"  Binding="{Binding RemainingTime}"/>
                 <DataGridTextColumn Header="Finish"  Binding="{Binding FinishTime}"/>
                 <DataGridTextColumn Header="Turn"  Binding="{Binding FirstName}"/>
