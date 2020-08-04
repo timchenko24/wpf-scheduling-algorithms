@@ -23,14 +23,18 @@ namespace SchedulingAlgorithms
     {
         InputController input;
         JobQueue jobQueue;
+        Simulation simulation;
 
         public MainWindow()
         {
             InitializeComponent();
             tbProcessName.IsEnabled = false;
-            input = new InputController();
-            input.JobNumber = 0;
+            input = new InputController
+            {
+                JobNumber = 0
+            };
             jobQueue = new JobQueue();
+            simulation = new Simulation();
             DataContext = input;
             dgProcessesTable.ItemsSource = jobQueue.JobList;
             //List<Job> t = new List<Job>() { new Job(1, 1, 3, 1), new Job(0, 1, 1, 1), new Job(2, 1, 5, 2), new Job(3, 1, 5, 0) };
@@ -43,6 +47,26 @@ namespace SchedulingAlgorithms
             jobQueue.AddJob(new Job(input.JobNumber, input.ArrivalTime, input.Burst, input.Priority));
             tbProcessName.Text = input.JobNumber++.ToString();
             dgProcessesTable.Items.Refresh();
+        }
+
+        private void rbFCFS_Checked(object sender, RoutedEventArgs e)
+        {
+            simulation.Algorithm = new FCFS(jobQueue);
+        }
+
+        private void rbRoundRobin_Checked(object sender, RoutedEventArgs e)
+        {
+            simulation.Algorithm = new RoundRobin(jobQueue);
+        }
+
+        private void rbSJF_Checked(object sender, RoutedEventArgs e)
+        {
+            simulation.Algorithm = new SJF(jobQueue);
+        }
+
+        private void rbPriority_Checked(object sender, RoutedEventArgs e)
+        {
+            simulation.Algorithm = new Priority(jobQueue);
         }
     }
 }
