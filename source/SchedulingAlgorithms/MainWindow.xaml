@@ -36,20 +36,52 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBox x:Name="tbProcessName" Margin="10,10,10,10" Grid.Column="1" Grid.Row="0" FontSize="14"/>
+                <TextBox x:Name="tbProcessName" Margin="10,10,10,10" TextWrapping="Wrap" Grid.Column="1" Grid.Row="0" FontSize="14">
+                    <TextBox.Text>
+                        <Binding Path="JobNumber">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule></DataErrorValidationRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
                 <TextBlock FontWeight="Bold" Text="Введите номер процесса:" Grid.Column="0" Grid.Row="0" Margin="10,14,10,13"/>
 
-                <TextBox x:Name="tbProcessArrivalTime" Margin="10,10,10,10" Grid.Column="1" Grid.Row="1" FontSize="14"/>
-                <TextBlock Text="Введите такт&#x0a;появления процесса:" FontWeight="Bold" Grid.Row="1" Margin="10,9,10,8"/>
+                <TextBox x:Name="tbProcessArrivalTime" Margin="10,10,10,10" TextWrapping="Wrap" Grid.Column="1" Grid.Row="1" FontSize="14">
+                    <TextBox.Text>
+                        <Binding Path="ArrivalTime">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule></DataErrorValidationRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <TextBlock Text="Введите такт&#x0a;появления процесса:" FontWeight="Bold" TextWrapping="Wrap" Grid.Row="1" Margin="10,9,10,8"/>
 
-                <TextBox x:Name="tbProcessBurst" Margin="10,10,10,10" Grid.Column="1" Grid.Row="2" FontSize="14"/>
-                <TextBlock Text="Введите CPU Burst&#x0a;процесса:" FontWeight="Bold" Grid.Row="2" Margin="10,8,10,8"/>
+                <TextBox x:Name="tbProcessBurst" Margin="10,10,10,10" Grid.Column="1" Grid.Row="2" FontSize="14">
+                    <TextBox.Text>
+                        <Binding Path="Burst">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule></DataErrorValidationRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <TextBlock Text="Введите CPU Burst&#x0a;процесса:" FontWeight="Bold" TextWrapping="Wrap" Grid.Row="2" Margin="10,8,10,8"/>
 
-                <TextBox x:Name="tbProcessPriority" Margin="10,10,10,10" Grid.Column="1" Grid.Row="3" FontSize="14"/>
+                <TextBox x:Name="tbProcessPriority" Margin="10,10,10,10" Grid.Column="1" Grid.Row="3" FontSize="14">
+                    <TextBox.Text>
+                        <Binding Path="Priority">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule></DataErrorValidationRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
                 <TextBlock Text="Введите приоритет&#x0a;процесса:" FontWeight="Bold" Grid.Row="3" Margin="10,8,10,7"/>
             </Grid>
         </GroupBox>
-        <Button x:Name="btnAddProcess" Content="Добавить процесс" Margin="10,5,10,5" Grid.Row="1"/>
+        <Button x:Name="btnAddProcess" Content="Добавить процесс" Margin="10,5,10,5" Grid.Row="1" Click="btnAddProcess_Click"/>
         <Button x:Name="btnStartSimulation" Content="Начать симуляцию" Margin="10,5,10,5" Grid.Row="2"/>
         <Button x:Name="btnReset" Content="Сброс" Margin="10,5,10,5" Grid.Row="3"/>
         <DataGrid x:Name="dgProcessesTable" Grid.Column="2" Margin="10,10,10,10" AutoGenerateColumns="False"
