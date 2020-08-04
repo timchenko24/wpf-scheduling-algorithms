@@ -27,7 +27,9 @@ namespace SchedulingAlgorithms
         public MainWindow()
         {
             InitializeComponent();
+            tbProcessName.IsEnabled = false;
             input = new InputController();
+            input.JobNumber = 0;
             jobQueue = new JobQueue();
             DataContext = input;
             dgProcessesTable.ItemsSource = jobQueue.JobList;
@@ -39,6 +41,7 @@ namespace SchedulingAlgorithms
         private void btnAddProcess_Click(object sender, RoutedEventArgs e)
         {
             jobQueue.AddJob(new Job(input.JobNumber, input.ArrivalTime, input.Burst, input.Priority));
+            tbProcessName.Text = input.JobNumber++.ToString();
             dgProcessesTable.Items.Refresh();
         }
     }
