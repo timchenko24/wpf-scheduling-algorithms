@@ -24,6 +24,7 @@ namespace SchedulingAlgorithms
         InputController input;
         JobQueue jobQueue;
         Simulation simulation;
+        BarChart chart;
 
         public MainWindow()
         {
@@ -35,6 +36,7 @@ namespace SchedulingAlgorithms
             };
             jobQueue = new JobQueue();
             simulation = new Simulation();
+            chart = new BarChart(Chart);
             DataContext = input;
             dgProcessesTable.ItemsSource = jobQueue.JobList;
             //List<Job> t = new List<Job>() { new Job(1, 1, 3, 1), new Job(0, 1, 1, 1), new Job(2, 1, 5, 2), new Job(3, 1, 5, 0) };
@@ -67,6 +69,13 @@ namespace SchedulingAlgorithms
         private void rbPriority_Checked(object sender, RoutedEventArgs e)
         {
             simulation.Algorithm = new Priority(jobQueue);
+        }
+
+        private void btnStartSimulation_Click(object sender, RoutedEventArgs e)
+        {
+            chart.Draw(simulation);
+            simulation.Reset();
+            dgProcessesTable.Items.Refresh();
         }
     }
 }
