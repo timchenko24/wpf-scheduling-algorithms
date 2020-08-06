@@ -67,5 +67,12 @@ namespace SchedulingAlgorithms
             return (GetTurnaroundTime(tick) - (Burst - RemainingTime));
         }
 
+        public void Clear()
+        {
+            StartTime = 0;
+            IsFinished = false;
+            FinishTime = 0;
+            RemainingTime = Burst;
+        }
     }
 }

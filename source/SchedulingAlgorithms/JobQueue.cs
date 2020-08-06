@@ -53,6 +53,14 @@ namespace SchedulingAlgorithms
             JobList.Sort(comparer);
         }
 
+        public void Clear()
+        {
+            foreach (var item in JobList)
+            {
+                item.Clear();
+            }
+        }
+
         public IEnumerator GetEnumerator()
         {
             return JobList.GetEnumerator();
