@@ -18,6 +18,8 @@ namespace SchedulingAlgorithms
             m_simulation = simulation;
 
             m_area = new ChartArea("MainArea");
+            m_area.AxisX.Title = "Номера процессов";
+            m_area.AxisY.Title = "Время";
             chart.ChartAreas.Add(m_area);
 
             m_barSeries = new Series();
