@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchedulingAlgorithms"
         xmlns:dvk="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        xmlns:winformchart="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization"
         mc:Ignorable="d"
         Title="MainWindow" Height="613" Width="1236" MinHeight="613" MinWidth="1120">
     <Window.Resources>
@@ -91,8 +92,8 @@
                 </MultiBinding>
             </Button.IsEnabled>
         </Button>
-        <Button x:Name="btnStartSimulation" Content="Начать симуляцию" Margin="10,5,10,5" Grid.Row="2"/>
-        <Button x:Name="btnReset" Content="Сброс" Margin="10,5,10,5" Grid.Row="3"/>
+        <Button x:Name="btnStartSimulation" Content="Начать симуляцию" Margin="10,5,10,5" Grid.Row="2" Click="btnStartSimulation_Click"/>
+        <Button x:Name="btnReset" Content="Сброс" Margin="10,5,10,5" Grid.Row="3" Click="btnReset_Click"/>
         <DataGrid x:Name="dgProcessesTable" Grid.Column="2" Margin="10,10,10,10" AutoGenerateColumns="False"
             HorizontalAlignment="Stretch" 
             HorizontalContentAlignment="Stretch" 
@@ -126,6 +127,9 @@
             </Grid>
         </GroupBox>
         <GroupBox x:Name="gbQuantum" Grid.Column="1" Margin="10,5,10,5" Grid.RowSpan="3" Grid.Row="1" Header="Квант времени">
+            <GroupBox.IsEnabled>
+                <Binding ElementName="rbRoundRobin" Path="IsChecked" />
+            </GroupBox.IsEnabled>
             <Grid Height="76">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
@@ -135,7 +139,6 @@
                 <TextBox x:Name="tbQuantum" Margin="10,5,10,5" FontSize="14" Grid.Row="1"/>
             </Grid>
         </GroupBox>
-        <dvk:Chart x:Name="Chart" Grid.Column="2" Margin="10" Grid.Row="1" Grid.RowSpan="5" Title="График"></dvk:Chart>
         <GroupBox x:Name="gbResults" Grid.ColumnSpan="2" Margin="10" Grid.Row="4" Grid.RowSpan="2" Header="Результаты">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -151,6 +154,12 @@
                 <TextBlock x:Name="lblAverageWaitTime" Margin="10,31,10,30" Text="" FontSize="18" Grid.Column="1"/>
                 <TextBlock x:Name="lblAverageTurnTime" Margin="10,31,10,30" Text="" FontSize="18" Grid.Column="1" Grid.Row="1"/>
             </Grid>
+        </GroupBox>
+        <GroupBox Header="График" Grid.Column="2" Margin="10,5,10,10" Grid.Row="1" Grid.RowSpan="5">
+            <WindowsFormsHost x:Name="host" Grid.Column="2" Grid.Row="4" Grid.RowSpan="2">
+                <winformchart:Chart x:Name="Chart">
+                </winformchart:Chart>
+            </WindowsFormsHost>
         </GroupBox>
     </Grid>
 </Window>
