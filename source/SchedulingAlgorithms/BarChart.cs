@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.UI.DataVisualization.Charting;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace SchedulingAlgorithms
 {
@@ -11,34 +11,43 @@ namespace SchedulingAlgorithms
     {
         ChartArea m_area;
         Series m_barSeries;
+        Simulation m_simulation;
 
-        public BarChart(Chart chart)
+        public BarChart(Chart chart, Simulation simulation)
         {
+            m_simulation = simulation;
+
             m_area = new ChartArea("MainArea");
             chart.ChartAreas.Add(m_area);
 
             m_barSeries = new Series();
             m_barSeries.YValuesPerPoint = 10;
-            chart.ChartAreas["GraphArea"].AxisY.Interval = 1;
+            chart.ChartAreas["MainArea"].AxisY.Interval = 1;
             m_barSeries.ChartType = SeriesChartType.RangeBar;
             chart.Series.Add(m_barSeries);
         }
 
-        public void Draw(Simulation simulation)
+        public void Draw()
         {
             int time;
-            while (simulation.Finished == false)
+            while (m_simulation.Finished == false)
             {
-                Job job = simulation.WorkStep();
-                time = simulation.Time;
+                Job job = m_simulation.WorkStep();
+                time = m_simulation.Time;
                 if (job != null)
                 {
                     time++;
-                    m_barSeries.Points.AddXY(job.JobNumber, simulation.Time, time);
+                    m_barSeries.Points.AddXY(job.JobNumber, m_simulation.Time, time);
                 }
-                simulation.Time++;
+                m_simulation.Time++;
             }
-            m_barSeries.ChartArea = "GraphArea";
+            m_barSeries.ChartArea = "MainArea";
+        }
+
+        public void Clear()
+        {
+            m_barSeries.Points.Clear();
+            m_barSeries.ChartArea = "";
         }
     }
 }
