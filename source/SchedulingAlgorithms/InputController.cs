@@ -13,6 +13,7 @@ namespace SchedulingAlgorithms
         public int ArrivalTime { get; set; }
         public int Burst { get; set; }
         public int Priority { get; set; } = 0;
+        public int Quantum { get; set; } = 0;
 
         public InputController() { }
 
@@ -43,6 +44,12 @@ namespace SchedulingAlgorithms
                         break;
                     case "Priority":
                         if ((Priority < 0) || (Priority > 15))
+                        {
+                            error = "Приоритет должен быть больше 0 и меньше 15";
+                        }
+                        break;
+                    case "Quantum":
+                        if ((Quantum < 0) || (Quantum > 15))
                         {
                             error = "Приоритет должен быть больше 0 и меньше 15";
                         }
