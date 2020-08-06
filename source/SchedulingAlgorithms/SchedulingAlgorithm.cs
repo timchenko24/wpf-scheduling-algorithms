@@ -17,7 +17,7 @@ namespace SchedulingAlgorithms
         public SchedulingAlgorithm(JobQueue jobList, IComparer<Job> comparer)
         {
             readyQueue = new JobQueue();
-            currentJob = null;
+            currentJob = new Job(1000, 0, 0, 0);
             isBusy = false;
             this.jobList = jobList.GetCopy();
             this.comparer = comparer;
