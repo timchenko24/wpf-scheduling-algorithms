@@ -70,5 +70,25 @@ namespace SchedulingAlgorithms
         {
             return new JobQueue(JobList);
         }
+
+        public double GetAverageWaitingTime(int tick)
+        {
+            double average = 0;
+            foreach (var item in JobList)
+            {
+                average += item.GetWaitingTime(tick);
+            }
+            return average / JobList.Count;
+        }
+
+        public double GetAverageTurnaroundTime(int tick)
+        {
+            double average = 0;
+            foreach (var item in JobList)
+            {
+                average += item.GetTurnaroundTime(tick);
+            }
+            return average / JobList.Count;
+        }
     }
 }
