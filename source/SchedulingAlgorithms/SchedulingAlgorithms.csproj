@@ -62,10 +62,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="RoundRobin.cs" />
-    <Compile Include="SchedulingAlgorithm.cs" />
-    <Compile Include="Simulation.cs" />
-    <Compile Include="SJF.cs" />
+    <Compile Include="models\scheduling-algs\RoundRobin.cs" />
+    <Compile Include="models\scheduling-algs\SchedulingAlgorithm.cs" />
+    <Compile Include="models\simulation\Simulation.cs" />
+    <Compile Include="models\scheduling-algs\SJF.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -74,24 +74,24 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BarChart.cs" />
-    <Compile Include="FCFS.cs" />
-    <Compile Include="InputController.cs" />
+    <Compile Include="models\simulation\BarChart.cs" />
+    <Compile Include="models\scheduling-algs\FCFS.cs" />
+    <Compile Include="controllers\InputController.cs" />
     <Compile Include="InverseAndBooleansToBooleanConverter.cs" />
-    <Compile Include="Job.cs" />
-    <Compile Include="JobByArrivalTimeComparer.cs" />
-    <Compile Include="JobByBurstComparer.cs" />
-    <Compile Include="JobByJobNumberComparer.cs" />
-    <Compile Include="JobByPriorityComparer.cs" />
-    <Compile Include="JobByRemainingComparer.cs" />
-    <Compile Include="JobQueue.cs" />
+    <Compile Include="models\process\Job.cs" />
+    <Compile Include="comparers\JobByArrivalTimeComparer.cs" />
+    <Compile Include="comparers\JobByBurstComparer.cs" />
+    <Compile Include="comparers\JobByJobNumberComparer.cs" />
+    <Compile Include="comparers\JobByPriorityComparer.cs" />
+    <Compile Include="comparers\JobByRemainingComparer.cs" />
+    <Compile Include="models\process\JobQueue.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Priority.cs" />
+    <Compile Include="models\scheduling-algs\Priority.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -118,5 +118,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
