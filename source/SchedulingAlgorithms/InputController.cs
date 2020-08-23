@@ -27,13 +27,13 @@ namespace SchedulingAlgorithms
                     case "JobNumber":
                         if ((JobNumber < 0) || (JobNumber > 90))
                         {
-                            error = "Номер процесса должна быть больше 0 и меньше 90";
+                            error = "Номер процесса должен быть больше 0 и меньше 90";
                         }
                         break;
                     case "ArrivalTime":
-                        if ((ArrivalTime < 1) || (ArrivalTime > 90))
+                        if ((ArrivalTime < 0) || (ArrivalTime > 90))
                         {
-                            error = "Такт появления должен быть больше 0 и меньше 100";
+                            error = "Такт появления должен быть больше 0 и меньше 90";
                         }
                         break;
                     case "Burst":
