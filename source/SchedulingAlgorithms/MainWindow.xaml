@@ -99,13 +99,13 @@
             ColumnWidth="*"
         >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="№"  Binding="{Binding JobNumber}"/>
-                <DataGridTextColumn Header="Arrive"  Binding="{Binding ArrivalTime}"/>
-                <DataGridTextColumn Header="Burst"  Binding="{Binding Burst}"/>
-                <DataGridTextColumn Header="Priority"  Binding="{Binding Priority}"/>
-                <DataGridTextColumn Header="Start"  Binding="{Binding StartTime}"/>
-                <DataGridTextColumn Header="Remain"  Binding="{Binding RemainingTime}"/>
-                <DataGridTextColumn Header="Finish"  Binding="{Binding FinishTime}"/>
+                <DataGridTextColumn Header="№"  Binding="{Binding JobNumber}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Arrive"  Binding="{Binding ArrivalTime}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Burst"  Binding="{Binding Burst}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Priority"  Binding="{Binding Priority}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Start"  Binding="{Binding StartTime}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Remain"  Binding="{Binding RemainingTime}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Finish"  Binding="{Binding FinishTime}" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
         <GroupBox x:Name="gbSchedulingAlgs" Header="Алгоритм планирования" Grid.Column="1" Margin="10,10,10,10">

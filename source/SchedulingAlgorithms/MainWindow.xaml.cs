@@ -70,6 +70,7 @@ namespace SchedulingAlgorithms
             dgProcessesTable.Items.Refresh();
             lblAverageTurnTime.Text = string.Format("{0:f2}", jobQueue.GetAverageTurnaroundTime(simulation.Time));
             lblAverageWaitTime.Text = string.Format("{0:f2}", jobQueue.GetAverageWaitingTime(simulation.Time));
+            btnStartSimulation.IsEnabled = false;
         }
 
         private void btnReset_Click(object sender, RoutedEventArgs e)
